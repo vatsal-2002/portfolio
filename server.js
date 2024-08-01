@@ -1,22 +1,33 @@
 const express = require("express");
-const router = express.Router();
 const cors = require("cors");
 const nodemailer = require("nodemailer");
+const mysql = require("mysql2");
+require('dotenv').config();
 
-// server used to send send emails
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.use("/", router);
-app.listen(5000, () => console.log("Server Running"));
-console.log(process.env.EMAIL_USER);
-console.log(process.env.EMAIL_PASS);
+
+const db = mysql.createConnection({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME
+});
+
+db.connect((err) => {
+  if (err) {
+    console.error("Error connecting to the database:", err);
+    return;
+  }
+  console.log("Connected to the MySQL database.");
+});
 
 const contactEmail = nodemailer.createTransport({
-  service: 'gmail',
+  service: 'hotmail',
   auth: {
-    user: "********@gmail.com",
-    pass: ""
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS
   },
 });
 
@@ -28,25 +39,34 @@ contactEmail.verify((error) => {
   }
 });
 
-router.post("/contact", (req, res) => {
-  const name = req.body.firstName + req.body.lastName;
-  const email = req.body.email;
-  const message = req.body.message;
-  const phone = req.body.phone;
+app.post("/contact", (req, res) => {
+  const { firstName, lastName, email, phone, message } = req.body;
+
   const mail = {
-    from: name,
-    to: "********@gmail.com",
+    from: process.env.EMAIL_USER,
+    to: "vatsprajapati20@gmail.com",
     subject: "Contact Form Submission - Portfolio",
-    html: `<p>Name: ${name}</p>
+    html: `<p>Name: ${firstName} ${lastName}</p>
            <p>Email: ${email}</p>
            <p>Phone: ${phone}</p>
            <p>Message: ${message}</p>`,
   };
+
   contactEmail.sendMail(mail, (error) => {
     if (error) {
-      res.json(error);
+      res.json({ code: 500, status: "Failed to send message" });
     } else {
-      res.json({ code: 200, status: "Message Sent" });
+      const query = "INSERT INTO submissions (firstName, lastName, email, phone, message) VALUES (?, ?, ?, ?, ?)";
+      db.query(query, [firstName, lastName, email, phone, message], (err, result) => {
+        if (err) {
+          res.json({ code: 500, status: "Failed to save submission" });
+        } else {
+          res.json({ code: 200, status: "Message Sent" });
+        }
+      });
     }
   });
 });
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
