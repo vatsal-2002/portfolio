@@ -1,6 +1,5 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import Fade from 'react-reveal/Fade';
 
 export const Experience = () => {
     const toRotate = ["saleshandy"];
@@ -49,10 +48,10 @@ export const Experience = () => {
             <div className="container">
                 <div className="row">
                     <div className="col">
-                        <Fade bottom>
+                        <div bottom>
                             <h2>Experience</h2>
-                        </Fade>
-                        <Fade bottom delay={500}>
+                        </div>
+                        <div bottom delay={500}>
                             <div className="experience-content-wrapper">
                                 <div className="experience-content">
                                     <h1><span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Saleshandy" ]'><span className="wrap">{text}</span></span></h1>
@@ -67,7 +66,7 @@ export const Experience = () => {
                                     <img src="https://img.freepik.com/premium-vector/cartoon-man-working-laptop_835197-5827.jpg" alt="Work" />
                                 </div>
                             </div>
-                        </Fade>
+                        </div>
                     </div>
                 </div>
             </div>
