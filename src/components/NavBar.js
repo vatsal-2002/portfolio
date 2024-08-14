@@ -43,7 +43,7 @@ export const NavBar = () => {
               <Nav.Link href="#skills" className={activeLink === 'skills' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('skills')}>Skills</Nav.Link>
               <Nav.Link href="#projects" className={activeLink === 'projects' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('projects')}>Projects</Nav.Link>
               <Nav.Link
-                href="https://online.flippingbook.com/view/310278126/"
+                href="https://online.flippingbook.com/view/379326270/"
                 className={activeLink === 'Resume' ? 'active navbar-link' : 'navbar-link'}
                 target="_blank"
                 rel="noopener noreferrer"
