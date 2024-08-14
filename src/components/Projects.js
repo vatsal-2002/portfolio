@@ -33,7 +33,7 @@ export const Projects = () => {
     {
       title: "To-DO-LIST",
       description: "Static Design & Development",
-      imgUrl: "https://imageio.forbes.com/specials-images/dam/imageserve/1092571024/960x0.jpg?height=474&width=711&fit=bounds",
+      imgUrl: "https://media.istockphoto.com/id/1193476717/photo/male-hands-making-a-to-do-list-in-a-notebook-over-an-office-desk.webp?b=1&s=170667a&w=0&k=20&c=p7MUCCTnL9eCmBr0FEBNs_4GFPg7yniFVz3m94k5OQQ=",
       link: "https://github.com/vatsal-2002/To-Do-List",
     },
     {
