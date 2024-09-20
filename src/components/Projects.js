@@ -31,6 +31,24 @@ export const Projects = () => {
       link: "https://react-projects-rust.vercel.app/",
     },
     {
+      title: "CAR-RENTAL",
+      description: "Static Design & Development",
+      imgUrl: "https://img.freepik.com/free-vector/car-rental-concept-illustration_114360-9267.jpg",
+      link: "https://car-rental-umber-xi.vercel.app/",
+    },
+    {
+      title: "BRAND PAGE",
+      description: "Static Design",
+      imgUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEVKZm4AFHj9SNqlAy5bS3Ffl5R0Ry7dtefg&s",
+      link: "https://react-projects-zeta-eight.vercel.app/",
+    },
+    {
+      title: "CONTACT PAGE",
+      description: "Static Design & Development",
+      imgUrl: "https://media.istockphoto.com/id/1168945108/photo/close-up-image-of-male-hands-using-smartphone-with-icon-telephone-email-mobile-phone-and.jpg?s=612x612&w=0&k=20&c=aVojLzP1n3XNxuRdy7Pqdzo6OyRAVanOWDUWjbu3R8Q=",
+      link: "https://contact-us-beta.vercel.app/",
+    },
+    {
       title: "To-DO-LIST",
       description: "Static Design & Development",
       imgUrl: "https://media.istockphoto.com/id/1193476717/photo/male-hands-making-a-to-do-list-in-a-notebook-over-an-office-desk.webp?b=1&s=170667a&w=0&k=20&c=p7MUCCTnL9eCmBr0FEBNs_4GFPg7yniFVz3m94k5OQQ=",
